@@ -12,7 +12,7 @@ public class DBController {
 		this.setFabrica(Persistence.createEntityManagerFactory("smartcities"));
 		this.setEm(fabrica.createEntityManager()); 
 	}
-
+	
 	protected EntityManager getEm() {
 		return em;
 	}

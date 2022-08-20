@@ -8,11 +8,9 @@ public class UsuarioController extends DBController {
 		super();		
 	}
 	
-	void destroy() {
-		System.out.println("recently active threads = ");		
+	public void fechar() {
 		super.fechar();
 	}
-	
 	
 	public void criar() {
 		Usuario usuario1 = new Usuario();
