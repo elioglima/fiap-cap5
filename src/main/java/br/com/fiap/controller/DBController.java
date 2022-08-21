@@ -7,8 +7,9 @@ public class DBController {
 	protected EntityManagerFactory fabrica;
 	
 	
-	public DBController() {
+	public DBController() {		
 		super();
+		System.out.println("Iniciando Conexão..");
 		this.setFabrica(Persistence.createEntityManagerFactory("smartcities"));
 		this.setEm(fabrica.createEntityManager()); 
 	}
@@ -33,6 +34,10 @@ public class DBController {
 		this.em.persist(entity);
 	}
 	
+	protected void remove(Object entity) {
+		this.em.remove(entity);;
+	}
+	
 	protected void execute() {
 		
 		try {
@@ -51,8 +56,6 @@ public class DBController {
 	protected void fechar() {
 		this.em.close();
 		this.fabrica.close();
-	}
-	
-	
-	
+		System.out.println("Conexão finalizada..");
+	}	
 }

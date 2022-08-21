@@ -7,7 +7,7 @@ public class UsuarioCriacaoTest {
 		UsuarioController UsuarioController = new UsuarioController();
 		UsuarioController.criar();
 		UsuarioController.editar();
-		UsuarioController.fechar();
-		
+		UsuarioController.apagar();
+		UsuarioController.fechar();	
 	}
 }
