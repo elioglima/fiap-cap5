@@ -9,7 +9,7 @@ public class UsuarioController extends DBController {
 	}
 	
 	public void fechar() {
-		super.fechar();
+		super.fechar();		
 	}
 	
 	public void criar() {
@@ -69,23 +69,29 @@ public class UsuarioController extends DBController {
 		this.persist(usuario);
 		this.execute();
 	}
+
+	public void apagar() {	
+		try {
+			Endereco endereco = em.find(Endereco.class, 3);
+			this.remove(endereco);
+			
+			Usuario usuario = em.find(Usuario.class, 3);		
+			this.remove(usuario);
+			
+			this.execute();			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 	
-	public void apagar() {
-		Usuario usuario = new Usuario();
-		usuario.setNome("Elio Gonçalves de Lima");
-		this.persist(usuario);		
-		
-		Endereco endereco = new Endereco();
-		endereco.setEndereco("Rua Alto Limpo");
-		endereco.setCep("04242-111");
-		endereco.setNumero(255);
-		endereco.setComplemento("Perto do metrô");
-		endereco.setBairro("Cidade SP");
-		endereco.setCidade("Juqueira");
-		endereco.setEstado("Sao Joao");
-		endereco.setUf("JQ");
-		endereco.setUsuario(usuario);		
-		this.persist(endereco);
-		this.execute();
+	@Override
+	public String toString() {
+		return "UsuarioController [getEm()=" + getEm() + ", getFabrica()=" + getFabrica() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
+
+	public void consultar(int id) {
+		// TODO Auto-generated method stub
+		System.out.println(this.toString());
 	}
 }
